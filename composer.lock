@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "041b6855f41909ff19e0291512a5a6d2",
+    "content-hash": "24618fa51626378d92f88c9498500069",
     "packages": [
         {
             "name": "brick/math",
@@ -3071,6 +3071,42 @@
                 }
             ],
             "time": "2023-02-25T19:38:58+00:00"
+        },
+        {
+            "name": "prueba/full-calendar",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./nova-components/FullCalendar",
+                "reference": "e9740bfb3fc7ac8b3fb8c09c93246bb4e4f0eb9f"
+            },
+            "require": {
+                "php": "^7.3|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Prueba\\FullCalendar\\ToolServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Prueba\\FullCalendar\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova tool.",
+            "keywords": [
+                "laravel",
+                "nova"
+            ],
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "psr/cache",
@@ -9077,7 +9113,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "prueba/full-calendar": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
