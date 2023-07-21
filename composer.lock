@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "24618fa51626378d92f88c9498500069",
+    "content-hash": "9d1d2984729c93a393fdea8b3e922040",
     "packages": [
         {
             "name": "brick/math",
@@ -3094,6 +3094,42 @@
             "autoload": {
                 "psr-4": {
                     "Prueba\\FullCalendar\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova tool.",
+            "keywords": [
+                "laravel",
+                "nova"
+            ],
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "prueba/onboarding",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./nova-components/Onboarding",
+                "reference": "a90d0951a2d13a257e507308494a0a026a440d3e"
+            },
+            "require": {
+                "php": "^7.3|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Prueba\\Onboarding\\ToolServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Prueba\\Onboarding\\": "src/"
                 }
             },
             "license": [
@@ -9114,7 +9150,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "prueba/full-calendar": 20
+        "prueba/full-calendar": 20,
+        "prueba/onboarding": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

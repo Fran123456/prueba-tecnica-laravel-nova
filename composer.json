@@ -80,6 +80,10 @@
         {
             "type": "path",
             "url": "./nova-components/Onboarding"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/Onboarding"
         }
     ]
 }

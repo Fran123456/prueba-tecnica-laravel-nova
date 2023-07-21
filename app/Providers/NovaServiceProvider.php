@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
 use Prueba\FullCalendar\FullCalendar;
-
+use Prueba\Onboarding\Onboarding;
 class NovaServiceProvider extends NovaApplicationServiceProvider
 {
     /**
@@ -67,7 +67,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     public function tools()
     {
-        return [new FullCalendar];
+        return [new FullCalendar, new Onboarding];
     }
 
     /**
