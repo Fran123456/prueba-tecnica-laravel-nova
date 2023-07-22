@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 
     $var = "[{
           attachTo: { element: '#foo' },
-          content: { title: 'Welcome!' }
+          content: { title: 'Welcome! api' }
         },
         {
           attachTo: { element: '#bar' },
@@ -37,7 +37,7 @@ use Illuminate\Support\Facades\Route;
     ]";
     $var = [
         array(
-            "attachTo"=> array("element"=>'#foo' , "content" => array("title"=>"Welcome"))
+            "attachTo"=> array("element"=>'#foo' , "content" => array("title"=>"Welcome2222"))
         ),
         array(
             "attachTo"=> array("element"=>'#bar' , "content" => array("title"=>"Do it!", "description"=>"xxxx"))

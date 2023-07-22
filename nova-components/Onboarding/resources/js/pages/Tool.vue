@@ -23,7 +23,7 @@
        @click="() => goToStep(1)">Step 2</button> <br> <br>
 
        <button class="bg-primary-500 text-white font-bold py-2 px-4 border border-blue-700 rounded" 
-       @click="() => goToStep(2)">Step 3</button> <br> <br>
+       >Step 3</button> <br> <br>
 
      
     </Card>
@@ -34,8 +34,9 @@
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref,onMounted, onBeforeMount ,watch,computed } from 'vue'
 import { VOnboardingWrapper, useVOnboarding } from 'v-onboarding'
+
 import 'v-onboarding/dist/style.css'
 export default defineComponent ({
   components: {
@@ -44,27 +45,48 @@ export default defineComponent ({
   setup() {
     const wrapper = ref(null)
     const { start, goToStep, finish } = useVOnboarding(wrapper)
-    const steps =getText()
-    //const steps = [
-      /*{
+    
+    
+    let steps = [
+      {
         attachTo: { element: '#foo' },
-        content: { title: "Welcome!" }
+        content: { title: "Bienvenido" }
       },
       {
         attachTo: { element: '#bar' },
         content: {
-          title: "Do it!",
-          description: "This is a description field and I really don't know what to write here..."
+          title: "Hola",
+          description: "este es un mensaje de Hola"
         }
       },
       {
         attachTo: { element: '#bar2' },
         content: {
-          title: "Do it! 2",
-          description: "2."
+          title: "Hasta pronto",
+          description: "Este es un mensaje de hasta pronto"
         }
       }
-    ]*/
+    ]
+
+    onMounted(() => {
+      if (wrapper.value) {
+        wrapper.value.start()
+      }
+    })
+
+
+    watch(
+      async () => {
+
+        const res =await Nova.request().get('/nova-vendor/onboarding').then(data =>{
+                     steps = data.data;
+                     console.log(steps)
+        })
+
+        //const res = Nova.request().get('/nova-vendor/onboarding');
+        //const data = await res;
+        //steps.value = data.data;
+      });
 
     return {
       wrapper,
@@ -73,19 +95,18 @@ export default defineComponent ({
       finish,
       goToStep
     }
+
+
   },
    methods:{
-     getText(){
-                 Nova.request().get('/nova-vendor/onboarding').then(data =>{
-                  //console.log(data.data)
+    async getText(){
+                 await Nova.request().get('/nova-vendor/onboarding').then(data =>{
                        this.steps = data.data
                        return data.data;
                  })
       }
       
-   },created () {
-           this.getText()
-        }
+   }
   
 })
 </script>
